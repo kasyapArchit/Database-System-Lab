@@ -11,12 +11,12 @@ int main(int argc, char *argv[])
     }
 
     printf("Input 20 numbers\n");
-    int num[21];
+    int num;
     for(int i=0; i<20; i++)
     {
-        scanf("%d", &num[i]);
+        scanf("%d", &num);
+        fwrite(&num, sizeof(int), 1, fptr);
     }
-    fwrite(num, sizeof(int), 20, fptr);
     fclose(fptr);
 
     return 0;
