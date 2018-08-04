@@ -10,12 +10,12 @@ int main(int argc, char *argv[])
         return 0;
     }
 
-    int num[21]={0};
+    int num;
     printf("The 20 numbers are:\n");
-    fread(num, sizeof(int), 20, fptr);
     for(int i=0; i<20; i++)
     {
-        printf("%d\n", num[i]);
+        fread(&num, sizeof(int), 1, fptr);
+        printf("%d\n", num);
     }
     fclose(fptr);
 
