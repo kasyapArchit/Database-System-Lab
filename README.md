@@ -5,5 +5,4 @@ Lab_1
     Also contains file handling in .csv format.
 
 Lab_2
-    Implementing a simple in-memory
-    index structures for persistent data
+    Making a simle contact PDS.
