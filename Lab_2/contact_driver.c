@@ -8,11 +8,11 @@
 // You can use the following macro to report test result
 // Do NOT put a semicolon after calling the macro (see examples below)
 
-#define TREPORT(tid,result) { printf("Test-case-id %s:%s",tid,result); fflush(stdout); }
+#define TREPORT(tid,result) { printf("Test-case-id %s:%s\n",tid,result); fflush(stdout); }
 
-main()
+int main()
 {
-	char *repo_name = "demo.dat";
+	char *repo_name = "IMT2016064";
 	int status, rec_size;
 	struct Contact testContact;
 	char *test_case_id;
@@ -47,11 +47,11 @@ main()
 		TREPORT(test_case_id,"SUCCESS")
 	else
 		TREPORT(test_case_id,"FAIL")
-
+	// printf("%s\n",testContact.contact_name);
 	test_case_id = "04";
 	if( testContact.contact_id == 10000 &&
 		strcmp(testContact.contact_name,"dummy name") == 0 &&
-		strcmp(testContact.contact_name,"dummy number") == 0 )
+		strcmp(testContact.phone,"dummy number") == 0 )
 
 		TREPORT(test_case_id,"SUCCESS")
 	else
@@ -68,7 +68,7 @@ main()
 	}
 
 	test_case_id = "06";
-	status = pds_open( repo_name, rec_size );
+	status = pds_open( repo_name );
 	if( status == PDS_SUCCESS ){
 		TREPORT(test_case_id,"SUCCESS")
 	}
@@ -88,7 +88,7 @@ main()
 	test_case_id = "08";
 	if( testContact.contact_id == 10000 &&
 		strcmp(testContact.contact_name,"dummy name") == 0 &&
-		strcmp(testContact.contact_name,"dummy number") == 0 )
+		strcmp(testContact.phone,"dummy number") == 0 )
 
 		TREPORT(test_case_id,"SUCCESS")
 	else
@@ -103,5 +103,5 @@ main()
 		TREPORT(test_case_id,"FAIL")
 		exit(status);
 	}
-
+	return 0;
 }
