@@ -5,5 +5,8 @@ Lab_1
     Also contains file handling in .csv format.
 
 Lab_2
-    Making a simle contact PDS.
+    Making a simple contact PDS.
     Buliding in-memory index for a data file. 
+
+Lab_3
+    Making index memory.
