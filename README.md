@@ -6,3 +6,4 @@ Lab_1
 
 Lab_2
     Making a simle contact PDS.
+    Buliding in-memory index for a data file. 

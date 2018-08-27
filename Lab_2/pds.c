@@ -41,13 +41,15 @@ int put_rec_by_key( int key, struct Contact *rec )
 	int offset, status, writesize;
 
 	// TO-DO
+	if(repo_handle.repo_status != PDS_REPO_OPEN)
+		return PDS_ADD_FAILED;
 	offset = 0;
 	status = PDS_ADD_FAILED;
 	writesize = sizeof(struct Contact);
 
 	fseek(repo_handle.pds_data_fp, offset, SEEK_END);
 	if(fwrite(rec, writesize, 1, repo_handle.pds_data_fp)==1)
-		status = PDS_SUCCESS;
+		status = PDS_SUCCESS, fflush(stdout);
 
 	return status;
 }
@@ -61,6 +63,8 @@ int get_rec_by_key( int key, struct Contact *rec )
 	int offset, status, readsize;
 
 	// TO-DO
+	if(repo_handle.repo_status != PDS_REPO_OPEN)
+		return PDS_REC_NOT_FOUND;
 	offset = 0;
 	readsize = sizeof(struct Contact);
 	struct Contact *tmp = (struct Contact*)malloc(readsize);
@@ -77,7 +81,7 @@ int get_rec_by_key( int key, struct Contact *rec )
 	free(tmp);
 	if(!feof(repo_handle.pds_data_fp))
 		status = PDS_FILE_ERROR;
-		
+
 	return status;
 }
 
