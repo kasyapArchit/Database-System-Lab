@@ -33,7 +33,8 @@ int main()
 
 	test_case_id = "02";
 	testContact.contact_id = 10000;
-	status = add_contact( &testContact );
+	// status = add_contact( &testContact );
+	status = put_rec_by_key(testContact.contact_id, &testContact); //new line
 	if( status == CONTACT_SUCCESS )
 		TREPORT(test_case_id,"SUCCESS")
 	else
@@ -42,7 +43,8 @@ int main()
 
 	test_case_id = "03";
 	testContact.contact_id = -1;
-	status = search_contact( 10000, &testContact );
+	// status = search_contact( 10000, &testContact );
+	status = get_rec_by_key(10000, &testContact); //newline
 	if( status == CONTACT_SUCCESS )
 		TREPORT(test_case_id,"SUCCESS")
 	else
@@ -79,7 +81,8 @@ int main()
 
 	test_case_id = "07";
 	testContact.contact_id = -1;
-	status = search_contact( 10000, &testContact );
+	// status = search_contact( 10000, &testContact );
+	status = get_rec_by_key(10000, &testContact); //new line
 	if( status == CONTACT_SUCCESS )
 		TREPORT(test_case_id,"SUCCESS")
 	else
